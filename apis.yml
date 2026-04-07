@@ -1,7 +1,12 @@
 aid: tiaa-cref
-url: https://raw.githubusercontent.com/api-evangelist/tiaa-cref/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/tiaa-cref/refs/heads/main/apis.yml
 modified: '2026-03-24'
 apis: []
 common:
   - type: Website
     url: https://www.tiaa-cref.com
+description: >-
+  TIAA-CREF is a leading provider of financial services in the academic, research,
+  medical, cultural, and government fields, offering retirement services, insurance,
+  and investment products.
