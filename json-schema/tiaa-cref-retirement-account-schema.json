@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.tiaa.org/schema/retirement-account",
+  "title": "TIAA Retirement Account",
+  "description": "JSON Schema representing a TIAA retirement account including plan type, investment allocations, and balance information",
+  "type": "object",
+  "required": ["accountId", "planType", "participantId"],
+  "properties": {
+    "accountId": {
+      "type": "string",
+      "description": "Unique TIAA account identifier"
+    },
+    "planType": {
+      "type": "string",
+      "enum": ["403b", "457b", "401k", "IRA_Traditional", "IRA_Roth", "529"],
+      "description": "Retirement plan type"
+    },
+    "planSponsor": {
+      "$ref": "#/$defs/PlanSponsor"
+    },
+    "participantId": {
+      "type": "string",
+      "description": "Participant's TIAA identifier"
+    },
+    "totalAccountBalance": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Total account balance across all investments"
+    },
+    "currency": {
+      "type": "string",
+      "const": "USD",
+      "default": "USD"
+    },
+    "asOfDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the account balance snapshot"
+    },
+    "investmentAllocations": {
+      "type": "array",
+      "description": "Investment allocations across TIAA/CREF accounts and other options",
+      "items": { "$ref": "#/$defs/InvestmentAllocation" }
+    },
+    "annuityContracts": {
+      "type": "array",
+      "description": "Annuity contracts held in this account",
+      "items": { "$ref": "#/$defs/AnnuityContract" }
+    },
+    "yearToDateContributions": {
+      "type": "object",
+      "properties": {
+        "employeeContributions": { "type": "number", "minimum": 0 },
+        "employerContributions": { "type": "number", "minimum": 0 },
+        "rolloverContributions": { "type": "number", "minimum": 0 }
+      }
+    }
+  },
+  "$defs": {
+    "PlanSponsor": {
+      "type": "object",
+      "description": "The institution sponsoring the retirement plan",
+      "required": ["sponsorId", "name"],
+      "properties": {
+        "sponsorId": { "type": "string" },
+        "name": { "type": "string" },
+        "planName": { "type": "string" },
+        "sector": {
+          "type": "string",
+          "enum": ["Higher Education", "Healthcare", "Non Profit", "Government", "Cultural", "Research"],
+          "description": "Industry sector of the plan sponsor"
+        }
+      }
+    },
+    "InvestmentAllocation": {
+      "type": "object",
+      "description": "Allocation to a specific investment option",
+      "required": ["investmentId", "investmentName"],
+      "properties": {
+        "investmentId": {
+          "type": "string",
+          "description": "TIAA investment product identifier"
+        },
+        "investmentName": {
+          "type": "string",
+          "description": "Investment option display name",
+          "examples": [
+            "TIAA Traditional",
+            "CREF Stock Account",
+            "CREF Bond Market Account",
+            "CREF Social Choice Account",
+            "CREF Global Equities Account",
+            "CREF Equity Index Account",
+            "CREF Money Market Account",
+            "CREF Inflation-Linked Bond Account"
+          ]
+        },
+        "investmentType": {
+          "type": "string",
+          "enum": ["FixedAnnuity", "VariableAnnuity", "MutualFund", "ETF", "MoneyMarket", "TargetDate", "SelfDirected"],
+          "description": "Type of investment vehicle"
+        },
+        "balance": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Current balance in this investment"
+        },
+        "allocationPercentage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Percentage of new contributions directed to this investment"
+        },
+        "units": {
+          "type": "number",
+          "description": "Number of units/shares held (for variable accounts)"
+        },
+        "unitValue": {
+          "type": "number",
+          "description": "Current unit value/NAV (for variable accounts)"
+        },
+        "isLifetimeIncome": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this investment provides guaranteed lifetime income"
+        },
+        "isESG": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this is an ESG/socially responsible investment"
+        }
+      }
+    },
+    "AnnuityContract": {
+      "type": "object",
+      "description": "An annuity contract providing guaranteed income",
+      "required": ["contractId", "annuityType"],
+      "properties": {
+        "contractId": { "type": "string" },
+        "annuityType": {
+          "type": "string",
+          "enum": ["TIAATraditional", "CREFVariableAnnuity", "LifetimeIncome", "TIAAMyChoiceMYGA", "SecureIncomeAccount"],
+          "description": "Type of annuity contract"
+        },
+        "contractValue": {
+          "type": "number",
+          "minimum": 0
+        },
+        "guaranteedMinimumRate": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Guaranteed minimum annual interest rate"
+        },
+        "currentCreditedRate": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Currently credited rate (may exceed guaranteed minimum)"
+        },
+        "isAnnuitized": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this contract has been converted to income payments"
+        },
+        "monthlyIncomeAmount": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Monthly income payment amount if annuitized"
+        }
+      }
+    }
+  }
+}

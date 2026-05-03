@@ -1,0 +1,125 @@
+{
+  "@context": {
+    "@vocab": "https://www.tiaa.org/vocab#",
+    "schema": "https://schema.org/",
+    "fibo": "https://spec.edmcouncil.org/fibo/ontology/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "tiaa": "https://www.tiaa.org/vocab#",
+
+    "RetirementPlan": {
+      "@id": "tiaa:RetirementPlan",
+      "rdfs:comment": "A tax-advantaged retirement savings plan administered by TIAA"
+    },
+    "AnnuityProduct": {
+      "@id": "tiaa:AnnuityProduct",
+      "rdfs:comment": "An annuity contract for retirement accumulation or income"
+    },
+    "InvestmentAccount": {
+      "@id": "tiaa:InvestmentAccount",
+      "rdfs:comment": "A CREF or mutual fund investment account within a retirement plan"
+    },
+    "PlanSponsor": {
+      "@id": "tiaa:PlanSponsor",
+      "rdfs:comment": "An institution sponsoring a retirement plan administered by TIAA"
+    },
+    "PlanParticipant": {
+      "@id": "tiaa:PlanParticipant",
+      "rdfs:comment": "An individual enrolled in a TIAA-administered retirement plan"
+    },
+    "LifetimeIncome": {
+      "@id": "tiaa:LifetimeIncome",
+      "rdfs:comment": "A guaranteed income stream lasting the participant's entire lifetime"
+    },
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "provider": "schema:provider",
+
+    "planType": {
+      "@id": "tiaa:planType",
+      "rdfs:comment": "Retirement plan type code: 403(b), 457(b), 401(k), IRA"
+    },
+    "accountBalance": {
+      "@id": "tiaa:accountBalance",
+      "@type": "xsd:decimal"
+    },
+    "annualContribution": {
+      "@id": "tiaa:annualContribution",
+      "@type": "xsd:decimal"
+    },
+    "guaranteedMinimumRate": {
+      "@id": "tiaa:guaranteedMinimumRate",
+      "@type": "xsd:decimal"
+    },
+    "creditedRate": {
+      "@id": "tiaa:creditedRate",
+      "@type": "xsd:decimal"
+    },
+    "assetsUnderManagement": {
+      "@id": "tiaa:assetsUnderManagement",
+      "@type": "xsd:decimal"
+    },
+    "participantCount": {
+      "@id": "tiaa:participantCount",
+      "@type": "xsd:integer"
+    },
+    "institutionalClientCount": {
+      "@id": "tiaa:institutionalClientCount",
+      "@type": "xsd:integer"
+    },
+    "targetRetirementYear": {
+      "@id": "tiaa:targetRetirementYear",
+      "@type": "xsd:integer"
+    },
+    "isLifetimeIncome": {
+      "@id": "tiaa:isLifetimeIncome",
+      "@type": "xsd:boolean"
+    },
+    "isParticipating": {
+      "@id": "tiaa:isParticipating",
+      "@type": "xsd:boolean"
+    },
+    "isVariableAnnuity": {
+      "@id": "tiaa:isVariableAnnuity",
+      "@type": "xsd:boolean"
+    },
+    "isTaxDeferred": {
+      "@id": "tiaa:isTaxDeferred",
+      "@type": "xsd:boolean"
+    },
+    "isESG": {
+      "@id": "tiaa:isESG",
+      "@type": "xsd:boolean"
+    },
+
+    "retirementAccounts": {
+      "@id": "tiaa:hasRetirementAccounts",
+      "@container": "@list"
+    },
+    "investmentOptions": {
+      "@id": "tiaa:hasInvestmentOptions",
+      "@container": "@list"
+    },
+
+    "TIAATraditional": "tiaa:ProductTIAATraditional",
+    "CREFStock": "tiaa:AccountCREFStock",
+    "CREFBondMarket": "tiaa:AccountCREFBondMarket",
+    "CREFSocialChoice": "tiaa:AccountCREFSocialChoice",
+    "CREFGlobalEquities": "tiaa:AccountCREFGlobalEquities",
+    "CREFEquityIndex": "tiaa:AccountCREFEquityIndex",
+    "CREFMoneyMarket": "tiaa:AccountCREFMoneyMarket",
+    "CREFInflationLinkedBond": "tiaa:AccountCREFInflationLinkedBond",
+    "TIAAMyChoiceMYGA": "tiaa:ProductTIAAMyChoiceMYGA",
+    "TIAASecureIncomeAccount": "tiaa:ProductTIAASecureIncomeAccount",
+    "TIAARetirePlus": "tiaa:SolutionTIAARetirePlus",
+    "NuveenLifecycleIncome": "tiaa:ProductNuveenLifecycleIncome",
+
+    "Fortune100": "schema:award",
+    "legalName": "schema:legalName",
+    "foundingDate": "schema:foundingDate",
+    "headquarters": "schema:location",
+    "nonprofit": "schema:nonprofitStatus"
+  }
+}

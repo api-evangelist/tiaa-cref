@@ -1,0 +1,160 @@
+name: TIAA-CREF Vocabulary
+description: >-
+  Domain vocabulary for TIAA (formerly TIAA-CREF), covering retirement planning,
+  annuity products, investment vehicles, plan types, institutional services,
+  and the Nuveen asset management product suite.
+version: '2026'
+created: '2026-05-03'
+modified: '2026-05-03'
+tags:
+  - 403b
+  - Annuities
+  - Asset Management
+  - Fortune 100
+  - Higher Education
+  - Insurance
+  - Investments
+  - Nuveen
+  - Retirement
+
+categories:
+  - name: Organization
+    description: Key organizational entities and designations
+    terms:
+      - term: TIAA
+        definition: Teachers Insurance and Annuity Association of America; a Fortune 100 financial services organization founded in 1918 by the Carnegie Foundation, serving non-profit and academic institutions
+        type: Organization
+      - term: CREF
+        definition: College Retirement Equities Fund; the variable annuity arm of TIAA invented in 1952; the world's first variable annuity
+        type: Organization
+      - term: Nuveen
+        definition: TIAA's wholly owned institutional asset management subsidiary; manages over $1.5 trillion in AUM across mutual funds, ETFs, closed-end funds, and alternative investments
+        type: Subsidiary
+      - term: Plan Sponsor
+        definition: An employer or institution (university, hospital, nonprofit, government agency) that establishes and manages a retirement plan for their employees
+        type: Role
+      - term: Participant
+        definition: An individual employee enrolled in a TIAA-administered retirement plan
+        type: Role
+      - term: Institutional Client
+        definition: An organization using TIAA's retirement plan services; TIAA serves over 12,000 institutional clients
+        type: Role
+
+  - name: Retirement Plan Types
+    description: Retirement savings plan structures served by TIAA
+    terms:
+      - term: 403(b)
+        definition: A tax-advantaged retirement savings plan for employees of public schools, non-profits, and certain other organizations; TIAA's primary market
+        type: PlanType
+        irsCode: "403(b)"
+      - term: 457(b)
+        definition: A tax-advantaged deferred compensation plan for state and local government employees and some non-profit employees
+        type: PlanType
+        irsCode: "457(b)"
+      - term: 401(k)
+        definition: A tax-advantaged retirement savings plan for for-profit company employees; TIAA also administers these for some clients
+        type: PlanType
+        irsCode: "401(k)"
+      - term: IRA
+        definition: Individual Retirement Account; tax-advantaged personal retirement savings account available directly to individuals
+        type: PlanType
+      - term: 529 Plan
+        definition: A tax-advantaged savings account for qualified education expenses; TIAA offers 529 plans for educational savings
+        type: PlanType
+
+  - name: TIAA Annuity Products
+    description: Annuity products offered by TIAA for retirement income
+    terms:
+      - term: TIAA Traditional
+        definition: TIAA's flagship fixed annuity providing guaranteed minimum interest plus potential additional amounts; participating annuity that has historically credited above the guaranteed floor; provides lifetime income
+        type: Product
+      - term: CREF Variable Annuity
+        definition: College Retirement Equities Fund variable annuity accounts investing in equities and other assets; includes multiple investment account options
+        type: Product
+      - term: CREF Stock Account
+        definition: CREF variable annuity account investing broadly in US and international equities
+        type: InvestmentAccount
+      - term: CREF Bond Market Account
+        definition: CREF variable annuity account investing in investment-grade bonds
+        type: InvestmentAccount
+      - term: CREF Social Choice Account
+        definition: CREF variable annuity account applying ESG screening criteria to investments
+        type: InvestmentAccount
+      - term: CREF Global Equities Account
+        definition: CREF variable annuity account investing in global equity markets
+        type: InvestmentAccount
+      - term: CREF Equity Index Account
+        definition: CREF variable annuity account tracking a broad equity index passively
+        type: InvestmentAccount
+      - term: CREF Money Market Account
+        definition: CREF variable annuity account investing in money market instruments for capital preservation
+        type: InvestmentAccount
+      - term: CREF Inflation-Linked Bond Account
+        definition: CREF variable annuity account investing in inflation-protected securities (TIPS)
+        type: InvestmentAccount
+      - term: TIAA MyChoice MYGA
+        definition: Industry-first flexible-premium multi-year guaranteed annuity (MYGA) allowing clients to add money to existing contracts mid-term; launched 2026
+        type: Product
+      - term: TIAA Secure Income Account (SIA)
+        definition: A guaranteed lifetime income option embedded in Nuveen's target-date funds and other investment products; also available as standalone
+        type: Product
+
+  - name: Investment Solutions
+    description: Investment products and management solutions
+    terms:
+      - term: TIAA RetirePlus
+        definition: A custom target-date strategy with embedded TIAA lifetime income for institutional plan sponsors; allows employees to accumulate in target-date funds that automatically convert to lifetime income at retirement
+        type: Solution
+      - term: Nuveen Lifecycle Income (NLI)
+        definition: An off-the-shelf target-date series from Nuveen with the TIAA Secure Income Account (SIA) embedded; available to all eligible plan types including 401(k)
+        type: Product
+      - term: Target-Date Fund
+        definition: A fund-of-funds that automatically adjusts its asset allocation from aggressive to conservative as the investor approaches a target retirement date
+        type: InvestmentVehicle
+      - term: Managed Account
+        definition: A professionally managed investment portfolio customized to an individual's retirement goals, risk tolerance, and time horizon
+        type: InvestmentVehicle
+      - term: Brokerage Window
+        definition: A retirement plan feature allowing participants to invest in securities outside the standard plan menu via a self-directed brokerage account
+        type: Feature
+
+  - name: Income and Planning Concepts
+    description: Retirement income and financial planning concepts
+    terms:
+      - term: Lifetime Income
+        definition: An annuity or income stream guaranteed to last for the participant's entire life, regardless of how long they live; TIAA's core value proposition
+        type: Concept
+      - term: Annuitization
+        definition: The conversion of accumulated retirement savings into a guaranteed income stream; TIAA Traditional can be annuitized for lifetime income
+        type: Concept
+      - term: Accumulation Phase
+        definition: The period during which retirement plan contributions and investment returns build up the participant's account balance
+        type: PhaseConcept
+      - term: Distribution Phase
+        definition: The period during which the participant draws income from their retirement savings, typically after retirement
+        type: PhaseConcept
+      - term: Required Minimum Distribution (RMD)
+        definition: The minimum annual withdrawal required by the IRS from tax-deferred retirement accounts after the account holder reaches age 73
+        type: RegulatoryRequirement
+      - term: Guaranteed Minimum Interest Rate
+        definition: The minimum interest rate TIAA Traditional credits regardless of market conditions; historically TIAA has credited additional amounts above this floor
+        type: Concept
+
+  - name: Nuveen Products
+    description: Asset management products managed by Nuveen
+    terms:
+      - term: Closed-End Fund
+        definition: A publicly traded investment fund with a fixed number of shares; Nuveen is a leading sponsor of closed-end funds
+        type: InvestmentVehicle
+      - term: ESG Strategy
+        definition: Environmental, Social, and Governance investing strategies integrating non-financial factors into investment analysis; Nuveen offers a broad responsible investing suite
+        type: InvestmentApproach
+      - term: Fixed Income
+        definition: Nuveen's institutional fixed income investment strategies spanning investment-grade, high-yield, municipal, and global bonds
+        type: AssetClass
+      - term: Real Assets
+        definition: Nuveen's real estate, farmland, and infrastructure investment strategies
+        type: AssetClass
+      - term: Alternative Investments
+        definition: Nuveen's private equity, private credit, and hedge fund strategies for institutional investors
+        type: AssetClass

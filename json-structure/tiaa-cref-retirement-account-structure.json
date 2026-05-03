@@ -1,0 +1,81 @@
+{
+  "title": "TIAA-CREF Retirement Account Structure",
+  "description": "Structural documentation for TIAA retirement account data models, investment options, and plan sponsor information",
+  "version": "2026",
+  "created": "2026-05-03",
+  "structures": [
+    {
+      "name": "TIAARetirementAccount",
+      "description": "A TIAA-administered retirement account for a plan participant",
+      "fields": [
+        { "name": "accountId", "type": "string", "required": true, "description": "Unique TIAA account identifier" },
+        { "name": "planType", "type": "string", "required": true, "description": "403b | 457b | 401k | IRA_Traditional | IRA_Roth | 529" },
+        { "name": "planSponsor", "type": "PlanSponsor", "required": false, "description": "Institution sponsoring the plan" },
+        { "name": "participantId", "type": "string", "required": true, "description": "TIAA participant identifier" },
+        { "name": "totalAccountBalance", "type": "number", "required": false, "description": "Total balance across all investments (USD)" },
+        { "name": "asOfDate", "type": "string (ISO 8601 date)", "required": false, "description": "Balance as-of date" },
+        { "name": "investmentAllocations", "type": "array<InvestmentAllocation>", "required": false, "description": "Individual investment option balances and allocations" },
+        { "name": "annuityContracts", "type": "array<AnnuityContract>", "required": false, "description": "Annuity contracts within the account" },
+        { "name": "yearToDateContributions", "type": "object", "required": false, "description": "YTD contribution breakdown by source" }
+      ]
+    },
+    {
+      "name": "PlanSponsor",
+      "description": "An institution sponsoring a TIAA retirement plan",
+      "fields": [
+        { "name": "sponsorId", "type": "string", "required": true, "description": "Unique plan sponsor identifier" },
+        { "name": "name", "type": "string", "required": true, "description": "Institution name" },
+        { "name": "planName", "type": "string", "required": false, "description": "Name of the specific retirement plan" },
+        { "name": "sector", "type": "string", "required": false, "description": "Higher Education | Healthcare | Non Profit | Government | Cultural | Research" }
+      ]
+    },
+    {
+      "name": "InvestmentAllocation",
+      "description": "Allocation to a specific TIAA or CREF investment option",
+      "fields": [
+        { "name": "investmentId", "type": "string", "required": true, "description": "TIAA investment product ID" },
+        { "name": "investmentName", "type": "string", "required": true, "description": "Investment name, e.g. 'TIAA Traditional', 'CREF Stock Account'" },
+        { "name": "investmentType", "type": "string", "required": false, "description": "FixedAnnuity | VariableAnnuity | MutualFund | ETF | MoneyMarket | TargetDate | SelfDirected" },
+        { "name": "balance", "type": "number", "required": false, "description": "Current balance (USD)" },
+        { "name": "allocationPercentage", "type": "number", "required": false, "description": "% of new contributions directed here (0-100)" },
+        { "name": "units", "type": "number", "required": false, "description": "Units/shares held (variable accounts)" },
+        { "name": "unitValue", "type": "number", "required": false, "description": "Current unit value/NAV" },
+        { "name": "isLifetimeIncome", "type": "boolean", "required": false, "default": false },
+        { "name": "isESG", "type": "boolean", "required": false, "default": false }
+      ]
+    },
+    {
+      "name": "AnnuityContract",
+      "description": "An annuity contract providing guaranteed accumulation or lifetime income",
+      "fields": [
+        { "name": "contractId", "type": "string", "required": true },
+        { "name": "annuityType", "type": "string", "required": true, "description": "TIAATraditional | CREFVariableAnnuity | LifetimeIncome | TIAAMyChoiceMYGA | SecureIncomeAccount" },
+        { "name": "contractValue", "type": "number", "required": false, "description": "Contract accumulation value (USD)" },
+        { "name": "guaranteedMinimumRate", "type": "number", "required": false, "description": "Guaranteed minimum annual rate (decimal)" },
+        { "name": "currentCreditedRate", "type": "number", "required": false, "description": "Currently credited annual rate (decimal)" },
+        { "name": "isAnnuitized", "type": "boolean", "required": false, "default": false },
+        { "name": "monthlyIncomeAmount", "type": "number", "required": false, "description": "Monthly income if annuitized (USD)" }
+      ]
+    },
+    {
+      "name": "TIAAInvestmentOptions",
+      "description": "Summary of TIAA and CREF investment options available in retirement plans",
+      "fixedOptions": [
+        { "id": "TIAA_TRAD", "name": "TIAA Traditional", "type": "FixedAnnuity", "isLifetimeIncome": true, "description": "Guaranteed minimum rate fixed annuity with historical above-floor credits" },
+        { "id": "TIAA_MYGA", "name": "TIAA MyChoice MYGA", "type": "FixedAnnuity", "isLifetimeIncome": false, "description": "Flexible-premium multi-year guaranteed annuity" }
+      ],
+      "variableAnnuityOptions": [
+        { "id": "CREF_STOCK", "name": "CREF Stock Account", "type": "VariableAnnuity", "assetClass": "Equity" },
+        { "id": "CREF_BOND", "name": "CREF Bond Market Account", "type": "VariableAnnuity", "assetClass": "Fixed Income" },
+        { "id": "CREF_SOCIAL", "name": "CREF Social Choice Account", "type": "VariableAnnuity", "assetClass": "Equity", "isESG": true },
+        { "id": "CREF_GLOBAL", "name": "CREF Global Equities Account", "type": "VariableAnnuity", "assetClass": "Global Equity" },
+        { "id": "CREF_INDEX", "name": "CREF Equity Index Account", "type": "VariableAnnuity", "assetClass": "Equity", "isPassive": true },
+        { "id": "CREF_MM", "name": "CREF Money Market Account", "type": "VariableAnnuity", "assetClass": "Money Market" },
+        { "id": "CREF_TIPS", "name": "CREF Inflation-Linked Bond Account", "type": "VariableAnnuity", "assetClass": "TIPS" }
+      ],
+      "lifetimeIncomeOptions": [
+        { "id": "TIAA_SIA", "name": "TIAA Secure Income Account (SIA)", "type": "LifetimeIncome", "isLifetimeIncome": true, "description": "Embedded lifetime income in Nuveen target-date funds" }
+      ]
+    }
+  ]
+}
