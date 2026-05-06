@@ -4,168 +4,42 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: TIAA-CREF
 providerId: tiaa-cref
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
-  - 403b
-  - Annuities
-  - Asset Management
-  - Fortune 100
-  - Higher Education
-  - Institutional
-  - Insurance
-  - Investments
-  - Non Profit
-  - Nuveen
+  - Finance
   - Retirement
-  - TIAA
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+  - Investment Management
+  - B2B
+description: TIAA-CREF (the historical brand of Teachers Insurance and Annuity Association of America
+  - College Retirement Equities Fund, now marketed as TIAA) does not publish a public API rate card.
+  Programmatic access to recordkeeping, annuity, and plan-administration surfaces is granted to plan
+  sponsors, payroll partners, and aggregators under bilateral contracts.
+sources:
+  - https://www.tiaa.org/
+notes: TIAA-CREF is the legacy brand for what is now TIAA. No public developer pricing exists; access
+  and quotas are negotiated per partner.
 plans:
-  - id: tiaa-cref-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the TIAA-CREF API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://www.tiaa.org/
-          - https://www.nuveen.com/
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://www.tiaa.org/
-          - https://www.nuveen.com/
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: TIAA Retirement Plans
-      - name: TIAA Annuities
-      - name: Nuveen Investments
-      - name: TIAA Wealth Management
-  - id: tiaa-cref-pro
-    name: Professional
-    type: paid
-    description: Production tier for TIAA-CREF. Provides higher quotas, priority support, and access to
-      the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://www.tiaa.org/
-          - https://www.nuveen.com/
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://www.tiaa.org/
-          - https://www.nuveen.com/
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains:
-          - https://www.tiaa.org/
-          - https://www.nuveen.com/
-        unit: 1000
-        price: TBD
-        userMultiplied: false
-    elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: TIAA Retirement Plans
-      - name: TIAA Annuities
-      - name: Nuveen Investments
-      - name: TIAA Wealth Management
-  - id: tiaa-cref-enterprise
-    name: Enterprise
+  - id: tiaa-cref-contact-sales
+    name: Contact Sales
     type: enterprise
-    description: Custom-negotiated tier for TIAA-CREF. Includes dedicated capacity, contractual SLAs,
-      security review, data residency options, and named technical account management.
+    description: Bilateral commercial agreement covering TIAA-CREF / TIAA recordkeeping, annuity, and
+      plan-administration data exchange. Pricing and limits set in the partner contract.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Custom Quote
+        name: custom_quote
+        type: flat
+        metric: varies
         limit: -1
-        timeFrame: month
-        geo: configurable
-        domains:
-          - https://www.tiaa.org/
-          - https://www.nuveen.com/
+        timeFrame: usage
+        geo: US
         unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://www.tiaa.org/
-          - https://www.nuveen.com/
-        unit: 1
-        price: custom
+        price: contact sales
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: TIAA Retirement Plans
-      - name: TIAA Annuities
-      - name: Nuveen Investments
-      - name: TIAA Wealth Management
+      - name: TIAA-CREF Recordkeeping Integrations
+      - name: Annuity Data Exchange
+      - name: Plan Administration APIs
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
