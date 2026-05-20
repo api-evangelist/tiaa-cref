@@ -135,6 +135,8 @@ apis:
         url: https://www.tiaa.org/public/invest/services/wealth-management
 
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/tiaa
   - type: Website
     url: https://www.tiaa.org/public
   - type: About
