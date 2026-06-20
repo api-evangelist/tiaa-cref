@@ -12,7 +12,7 @@ description: >-
   non-profit organizations, universities, hospitals, and government entities with
   retirement plans including 403(b), 457(b), and 401(k) plans.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - 403b
   - Annuities
