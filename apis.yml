@@ -135,6 +135,8 @@ apis:
         url: https://www.tiaa.org/public/invest/services/wealth-management
 
 common:
+  - type: DomainSecurity
+    url: security/tiaa-cref-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/tiaa
   - type: Website
