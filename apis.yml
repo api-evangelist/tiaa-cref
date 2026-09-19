@@ -44,7 +44,7 @@ tags:
   - Higher Education
   - Institutional
   - Insurance
-  - Investments
+  - Investment
   - Non-Profit
   - Nuveen
   - Retirement
@@ -160,6 +160,13 @@ apis:
       educational savings (529 plans), and banking products.
     humanURL: https://www.tiaa.org/public/invest/services/wealth-management
     tags:
+      - Banking
+      - Brokerage
+      - Financial Advice
+      - Insurance
+      - Investment
+      - Wealth Management
+    tags_raw:
       - Banking
       - Brokerage
       - Financial Advice
