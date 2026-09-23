@@ -1,7 +1,9 @@
 ---
 title: TIAA Launches TIAA gAIt to Delight Clients and Deliver ...
 url: https://www.tiaa.org/public/about-tiaa/news-press/news/2024/07-17
-date: '2026-05-25'
+published: '2024-07-17'
+date_basis: url-derived
+harvested: '2026-05-25'
 query: '"TIAA-CREF" press release artificial intelligence'
 position: 1
 source: serpapi-google

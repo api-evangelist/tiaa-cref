@@ -1,7 +1,9 @@
 ---
 title: SEC Announces $97 Million Enforcement Action Against ...
 url: https://www.sec.gov/newsroom/press-releases/2021-123
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"TIAA-CREF" press release artificial intelligence'
 position: 5
 source: serpapi-google

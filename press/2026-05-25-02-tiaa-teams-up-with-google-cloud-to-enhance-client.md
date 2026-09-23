@@ -1,7 +1,9 @@
 ---
 title: TIAA Teams Up with Google Cloud to Enhance Client ...
 url: https://www.tiaa.org/public/about-tiaa/news-press/news/2022/09-07
-date: '2026-05-25'
+published: '2022-09-07'
+date_basis: url-derived
+harvested: '2026-05-25'
 query: '"TIAA-CREF" press release artificial intelligence'
 position: 2
 source: serpapi-google
