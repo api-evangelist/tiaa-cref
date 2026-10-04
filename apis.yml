@@ -79,7 +79,6 @@ apis:
       investing. TIAA RetirePlus provides custom target-date strategies with
       embedded lifetime income for institutional clients.
     humanURL: https://www.tiaa.org/public
-    baseURL: https://www.tiaa.org/
     tags:
       - 403b
       - 457b
