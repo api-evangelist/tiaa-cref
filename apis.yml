@@ -177,6 +177,12 @@ apis:
         url: https://www.tiaa.org/public/invest/services/wealth-management
 
 common:
+  - type: Plans
+    url: plans/tiaa-cref-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/tiaa-cref-rate-limits.yml
+  - type: FinOps
+    url: finops/tiaa-cref-finops.yml
   - type: DomainSecurity
     url: security/tiaa-cref-domain-security.yml
   - type: LinkedIn
